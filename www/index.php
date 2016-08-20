@@ -37,50 +37,15 @@ session_start();
     <link rel="stylesheet" href="css/lib/getmdl-select.min.css">
     <link rel="stylesheet" href="css/lib/nv.d3.css">
     <link rel="stylesheet" href="css/application.css">
+    <link rel="stylesheet" href="css/index.css">
     <!-- endinject -->
 
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1259553880755572',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
  </head>
   <body>
   
 
 
-  <?php if (@$_SESSION['FBID']) { ?>      <!--  After user login  -->
-<div class="container">
-<div class="hero-unit">
-  <h1>Hello <?php echo $_SESSION['USERNAME']; ?></h1>
-  <p>Welcome to "facebook login" tutorial</p>
-  </div>
-<div class="span4">
- <ul class="nav nav-list">
-<li class="nav-header">Image</li>
-	<li><img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"></li>
-<li class="nav-header">Facebook ID</li>
-<li><?php echo  $_SESSION['FBID']; ?></li>
-<li class="nav-header">Facebook fullname</li>
-<li><?php echo $_SESSION['FULLNAME']; ?></li>
-<li class="nav-header">Facebook Email</li>
-<li><?php echo $_SESSION['EMAIL']; ?></li>
-<div><a href="logout.php">Logout</a></div>
-</ul></div></div>
-    <?php } else { ?>     <!-- Before login --> 
+  <?php if (@$_SESSION['FBID'] or 1 == 1) { ?>      <!--  After user login  -->
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header">
@@ -98,8 +63,7 @@ session_start();
                     </div>
                 </div>
 
-                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification"
-                     data-badge="23">
+                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification">
                     notifications_none
                 </div>
 
@@ -157,118 +121,14 @@ session_start();
                     </li>
                 </ul>
 
-                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox" data-badge="4">
+                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox">
                     mail_outline
                 </div>
 
-                <ul class="mdl-menu mdl-list mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right mdl-shadow--2dp messages-dropdown"
-                    for="inbox">
-                    <li class="mdl-list__item">
-                        You have 4 new messages!
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--primary">
-                            <text>A</text>
-                        </span>
-                        <span>Alice</span>
-                        <span class="mdl-list__item-sub-title">Birthday Party</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">just now</span>
-                    </span>
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--baby-blue">
-                            <text>M</text>
-                        </span>
-                        <span>Mike</span>
-                        <span class="mdl-list__item-sub-title">No theme</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">5 min</span>
-                    </span>
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--cerulean">
-                            <text>D</text>
-                        </span>
-                        <span>Darth</span>
-                        <span class="mdl-list__item-sub-title">Suggestion</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">23 hours</span>
-                    </span>
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--mint">
-                            <text>D</text>
-                        </span>
-                        <span>Don McDuket</span>
-                        <span class="mdl-list__item-sub-title">NEWS</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">30 Nov</span>
-                    </span>
-                    </li>
-                    <li class="mdl-list__item list__item--border-top">
-                        <button href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">SHOW ALL MESSAGES</button>
-                    </li>
-                </ul>
-
                 <div class="avatar-dropdown" id="icon">
-                    <span>Luke</span>
-                    <img src="images/Icon_header.png">
+                    <span><?php echo @$_SESSION['FULLNAME']; ?></span>
+                    <img src="https://graph.facebook.com/<?php echo @$_SESSION['FBID']; ?>/picture">
                 </div>
-
-                <ul class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp account-dropdown"
-                    for="icon">
-                    <li class="mdl-list__item mdl-list__item--two-line">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="material-icons mdl-list__item-avatar"></span>
-                        <span>Luke</span>
-                        <span class="mdl-list__item-sub-title">Luke@skywalker.com</span>
-                    </span>
-                    </li>
-                    <li class="list__item--border-top"></li>
-                    <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">account_circle</i>
-                        My account
-                    </span>
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">check_box</i>
-                        My tasks
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label background-color--primary">3 new</span>
-                    </span>
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">perm_contact_calendar</i>
-                        My events
-                    </span>
-                    </li>
-                    <li class="list__item--border-top"></li>
-                    <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">settings</i>
-                        Settings
-                    </span>
-                    </li>
-                    <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon text-color--secondary">exit_to_app</i>
-                        Log out
-                    </span>
-                    </li>
-                </ul>
 
                 <button id="more"
                         class="mdl-button mdl-js-button mdl-button--icon">
@@ -278,10 +138,55 @@ session_start();
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp settings-dropdown"
                     for="more">
                     <li class="mdl-menu__item">
-                        Settings
+                        Configuración
                     </li>
                     <a class="mdl-menu__item" href="https://github.com/CreativeIT/getmdl-dashboard/issues">
-                        Support
+                        Soporte
+                    </a>
+                    <li class="mdl-menu__item">
+                        <a href="logout.php">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+
+<div class="container">
+<div class="hero-unit">
+  <h1>Hello <?php echo $_SESSION['USERNAME']; ?></h1>
+  <p>Welcome to "facebook login" tutorial</p>
+  </div>
+<div class="span4">
+ <ul class="nav nav-list">
+<li class="nav-header">Image</li>
+	<li><img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"></li>
+<li class="nav-header">Facebook ID</li>
+<li><?php echo  $_SESSION['FBID']; ?></li>
+<li class="nav-header">Facebook fullname</li>
+<li><?php echo $_SESSION['FULLNAME']; ?></li>
+<li class="nav-header">Facebook Email</li>
+<li><?php echo $_SESSION['EMAIL']; ?></li>
+<div><a href="logout.php">Logout</a></div>
+</ul></div></div>
+    <?php } else { ?>     <!-- Before login --> 
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+
+                <button id="more"
+                        class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp settings-dropdown"
+                    for="more">
+                    <li class="mdl-menu__item">
+                        Configuraciones
+                    </li>
+                    <a class="mdl-menu__item" href="https://github.com/CreativeIT/getmdl-dashboard/issues">
+                        Soporte
                     </a>
                     <li class="mdl-menu__item">
                         F.A.Q.
@@ -311,36 +216,40 @@ session_start();
         </div>
 
         <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="logo">
+              <img src="images/utnLogo100.png" alt="" style="width:100px;height:100px; margin:0 auto;" />
+            </div>
             <div class="mdl-card mdl-shadow--2dp employer-form" action="#">
                 <div class="mdl-card__title">
-                    <h2>Iniciar sesion</h2>
-                    <div class="mdl-card__subtitle">UTN Book permite iniciar sesión con tu cuenta de Facebook.</div>
+                    <h2>Iniciar sesión</h2>
                 </div>
 
                 <div class="mdl-card__supporting-text">
-                    
-<fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
+                    <div class="mdl-card__subtitle">UTNBook permite iniciar sesión con tu cuenta de Facebook.</div>
+                    <br />
+                    <a href="fbconfig.php" title="Iniciar sesión con Facebook">
+                      <img src="images/fb_login.png" alt="FB Login" />
+                    </a>
                 </div>
             </div>
         </main>
     </div>
 
-<!-- inject:js -->
-<script src="js/d3.js"></script>
-<script src="js/getmdl-select.min.js"></script>
-<script src="js/material.js"></script>
-<script src="js/nv.d3.js"></script>
-<script src="js/widgets/employer-form/employer-form.js"></script>
-<script src="js/widgets/line-chart/line-chart-nvd3.js"></script>
-<script src="js/widgets/pie-chart/pie-chart-nvd3.js"></script>
-<script src="js/widgets/table/table.js"></script>
-<script src="js/widgets/todo/todo.js"></script>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-<!-- endinject -->
+
 
     <?php } ?>
+
+    <!-- inject:js -->
+    <script src="js/d3.js"></script>
+    <script src="js/getmdl-select.min.js"></script>
+    <script src="js/material.js"></script>
+    <script src="js/nv.d3.js"></script>
+    <script src="js/widgets/employer-form/employer-form.js"></script>
+    <script src="js/widgets/line-chart/line-chart-nvd3.js"></script>
+    <script src="js/widgets/pie-chart/pie-chart-nvd3.js"></script>
+    <script src="js/widgets/table/table.js"></script>
+    <script src="js/widgets/todo/todo.js"></script>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    <!-- endinject -->
   </body>
 </html>
