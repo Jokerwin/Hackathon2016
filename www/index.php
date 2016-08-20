@@ -45,7 +45,7 @@ session_start();
   
 
 
-  <?php if (@$_SESSION['FBID']) { ?>      <!--  After user login  -->
+  <?php if ((@$_SESSION['FBID']) or (1==1)) { ?>      <!--  After user login  -->
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header">
@@ -150,6 +150,165 @@ session_start();
             </div>
         </header>
     </div>
+		
+	
+    <main class="mdl-layout__content">
+	
+		<div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+			<div class="mdl-card mdl-shadow--2dp weather">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">Actual</h2>
+
+					<div class="mdl-layout-spacer"></div>
+					<div class="mdl-card__subtitle-text">
+						<i class="material-icons">room</i>
+						UTN FRRE
+					</div>
+				</div>
+				<div class="mdl-card__supporting-text mdl-card--expand">
+					<p class="weather-temperature">Azure<sup>&deg;</sup></p>
+
+					<p class="weather-description">
+						Implementación de una base de datos de MySQL en Microsoft Azure
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+			<div class="mdl-card mdl-shadow--2dp trending">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">Lo más estudiado</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<ul class="mdl-list">
+						<li class="mdl-list__item">
+							<span class="mdl-list__item-primary-content list__item-text">Análisis de Sistemas</span>
+							<span class="mdl-list__item-secondary-content">
+								<i class="material-icons trending__arrow-up" role="presentation">&#xE5C7</i>
+							</span>
+							<span class="mdl-list__item-secondary-content trending__percent">1 %</span>
+						</li>
+						<li class="mdl-list__item list__item--border-top">
+							<span class="mdl-list__item-primary-content list__item-text">SCRUM</span>
+							<span class="mdl-list__item-secondary-content">
+								<i class="material-icons trending__arrow-down" role="presentation">&#xE5C5</i>
+							</span>
+							<span class="mdl-list__item-secondary-content trending__percent">2 %</span>
+						</li>
+						<li class="mdl-list__item list__item--border-top">
+							<span class="mdl-list__item-primary-content list__item-text ">SQL Server</span>
+							<span class="mdl-list__item-secondary-content">
+								<i class="material-icons trending__arrow-up" role="presentation">&#xE5C7</i>
+							</span>
+							<span class="mdl-list__item-secondary-content trending__percent">5 %</span>
+						</li>
+						<li class="mdl-list__item list__item--border-top">
+							<span class="mdl-list__item-primary-content list__item-text">User eXperience</span>
+							<span class="mdl-list__item-secondary-content">
+								<i class="material-icons trending__arrow-up" role="presentation">&#xE5C7</i>
+							</span>
+							<span class="mdl-list__item-secondary-content trending__percent">18 %</span>
+						</li>
+						<li class="mdl-list__item list__item--border-top">
+							<span class="mdl-list__item-primary-content">Smalltalk</span>
+							<span class="mdl-list__item-secondary-content">
+								<i class="material-icons trending__arrow-up" role="presentation">&#xE5C7</i>
+							</span>
+							<span class="mdl-list__item-secondary-content trending__percent">17 %</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--5-col-tablet mdl-cell--2-col-phone">
+			<div class="mdl-card mdl-shadow--2dp cotoneaster">
+				<div class="mdl-card__title mdl-card--expand">
+					<h2 class="mdl-card__title-text">Programación Funcional</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<div>
+						Sus orígenes provienen del Cálculo Lambda, una teoría matemática elaborada por
+						Alonzo Church como apoyo a sus estudios sobre computabilidad.
+					</div>
+					<a href="https://en.wikipedia.org/wiki/Cotoneaster" target="_blank">Wikipedia</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone ">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp projects-table">
+				<thead>
+				<tr>
+					<th class="mdl-data-table__cell--non-numeric">Apunte</th>
+					<th class="mdl-data-table__cell--non-numeric">Temas</th>
+					<th class="mdl-data-table__cell--non-numeric">Autor</th>
+					<th class="mdl-data-table__cell--non-numeric">Subido</th>
+					<th class="mdl-data-table__cell--non-numeric">Calificación</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td class="mdl-data-table__cell--non-numeric">Física I Teoría de Final</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<span class="label label--mini background-color--mint">Física I</span>
+						<span class="label label--mini background-color--primary">Final</span>
+						<span class="label label--mini background-color--cerulean">Teoría</span>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">Hectornauta</td>
+					<td class="mdl-data-table__cell--non-numeric">1 de Julio</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<div id="task1" class="mdl-progress mdl-js-progress"></div>
+						<div class="mdl-tooltip" for="task1">
+							89%
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="mdl-data-table__cell--non-numeric">Smalltalk</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<span class="label label--mini background-color--baby-blue">Paradigmas de Programación</span>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">César Pizzi</td>
+					<td class="mdl-data-table__cell--non-numeric">6 de septiembre</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<div id="task2" class="mdl-progress mdl-js-progress"></div>
+						<div class="mdl-tooltip" for="task2">
+							14%
+						</div>
+					</td>
+				</tr>
+				<tr class="is-selected">
+					<td class="mdl-data-table__cell--non-numeric">Análisis de Sistemas</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<span class="label label--mini background-color--primary">Teoría</span>
+						<span class="label label--mini background-color--baby-blue">Análisis de Sistemas</span>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">Paula Naranja</td>
+					<td class="mdl-data-table__cell--non-numeric">24 de octubre</td>
+					<td class="mdl-data-table__cell--non-numeric task-done">
+						<i id="task3" class="material-icons">done</i>
+					</td>
+				</tr>
+				<tr>
+					<td class="mdl-data-table__cell--non-numeric">Seguridad en Redes</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<span class="label label--mini background-color--secondary">Comunicaciones</span>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">Emanuel Huerga</td>
+					<td class="mdl-data-table__cell--non-numeric">26 de agosto</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<div id="task4" class="mdl-progress mdl-js-progress"></div>
+						<div class="mdl-tooltip" for="task4">
+							31%
+						</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		
+    </main>
 
     <?php } else { ?>     <!-- Before login --> 
 
