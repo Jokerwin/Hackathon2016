@@ -179,7 +179,7 @@ session_start();
         </header>
 
         <div class="mdl-layout__drawer">
-            <header>darkboard</header>
+            <header>UTNBook</header>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="index.html">
                     <i class="material-icons" role="presentation">dashboard</i>
