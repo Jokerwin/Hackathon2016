@@ -249,7 +249,6 @@ session_start();
     <script src="js/widgets/pie-chart/pie-chart-nvd3.js"></script>
     <script src="js/widgets/table/table.js"></script>
     <script src="js/widgets/todo/todo.js"></script>
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     <!-- endinject -->
   </body>
 </html>
