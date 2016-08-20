@@ -45,7 +45,7 @@ session_start();
   
 
 
-  <?php if (@$_SESSION['FBID'] or 1 == 1) { ?>      <!--  After user login  -->
+  <?php if (@$_SESSION['FBID']) { ?>      <!--  After user login  -->
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header">
