@@ -21,3 +21,7 @@ z-index: 1;
   padding-bottom: 8px;
 
 }
+
+.mdl-textfield__label {
+  top: 10px!important;
+}
