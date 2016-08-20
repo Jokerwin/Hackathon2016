@@ -159,19 +159,19 @@ include_once('settings.php');
                     <i class="material-icons" role="presentation">dashboard</i>
                     Inicio
                 </a>
-                <a class="mdl-navigation__link" href="'.$url.'/ver-apunte.php">
+                <a class="mdl-navigation__link" href="/ver-apunte.php">
                     <i class="material-icons" role="presentation">person</i>
                     Ver apunte
                 </a>
-                <a class="mdl-navigation__link" href="'.$url.'/cargar-apunte.php">
+                <a class="mdl-navigation__link" href="/cargar-apunte.php">
                     <i class="material-icons" role="presentation">link</i>
                     Agregar apunte
                 </a>
-                <a class="mdl-navigation__link" href="'.$url.'/encontrar-centros.php">
+                <a class="mdl-navigation__link" href="/encontrar-centros.php">
                     <i class="material-icons" role="presentation">link</i>
                     Encontrar centros
                 </a>
-                <a class="mdl-navigation__link" href="'.$url.'/sysacad">
+                <a class="mdl-navigation__link" href="/sysacad">
                     <i class="material-icons" role="presentation">link</i>
                     Seguidor de carrera
                 </a>
