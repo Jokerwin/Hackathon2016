@@ -1,3 +1,8 @@
+<?php
+session_start(); 
+include_once('settings.php');
+?>
+
 <!doctype html>
 <!--
   Material Design Lite
@@ -70,8 +75,7 @@
                     </div>
                 </div>
 
-                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification"
-                     data-badge="23">
+                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification">
                     notifications_none
                 </div>
 
@@ -129,7 +133,7 @@
                     </li>
                 </ul>
 
-                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox" data-badge="4">
+                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox">
                     mail_outline
                 </div>
 
@@ -192,8 +196,8 @@
                 </ul>
 
                 <div class="avatar-dropdown" id="icon">
-                    <span>Luke</span>
-                    <img src="images/Icon_header.png">
+                    <span><?php echo @$_SESSION['FULLNAME']; ?></span>
+                    <img src="https://graph.facebook.com/<?php echo @$_SESSION['FBID']; ?>/picture">
                 </div>
 
                 <ul class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp account-dropdown"
@@ -261,82 +265,87 @@
                 </ul>
             </div>
         </header>
-
         <div class="mdl-layout__drawer">
-            <header>darkboard</header>
+            <header>UTNBook</header>
+            <?php
+            echo '
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html">
+                <a class="mdl-navigation__link" href="'.$url.'">
                     <i class="material-icons" role="presentation">dashboard</i>
-                    Dashboard
+                    Inicio
                 </a>
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="forms.html">
+                <a class="mdl-navigation__link" href="'.$url.'/ver-apunte.php">
                     <i class="material-icons" role="presentation">person</i>
-                    Account
+                    Ver apunte
                 </a>
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="encontrar-centros.html">
-                    <i id="centros" class="material-icons" role="presentation">dashboard</i>
-                    Encontrar centros de estudio
-                </a>
-
-                <div class="mdl-layout-spacer"></div>
-                <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">
+                <a class="mdl-navigation__link" href="'.$url.'/cargar-apunte.php">
                     <i class="material-icons" role="presentation">link</i>
-                    GitHub
+                    Agregar apunte
                 </a>
-            </nav>
+                <a class="mdl-navigation__link mdl-navigation__link--current" href="'.$url.'/encontrar-centros.php">
+                    <i class="material-icons" role="presentation">link</i>
+                    Encontrar centros
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/sysacad">
+                    <i class="material-icons" role="presentation">link</i>
+                    Seguidor de carrera
+                </a>
+            </nav>';
+            ?>
         </div>
 
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-card mdl-shadow--2dp employer-form" action="#">
                 <div class="mdl-card__title">
-                    <h2>Aprenda Haskell</h2>
+                    <h2>Centros de estudio</h2>
                     <div class="mdl-card__subtitle"></div>
                 </div>
 
                 <div class="mdl-card__supporting-text">
                     <form action="#" class="form">
                         <div class="form__article">
-							<div class="mdl-grid">
-								<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <textarea class="mdl-textfield__input" type="text" rows="3" id="AboutMe" disabled>Apunte de cátedra con indicaciones generales para realizar programas matemáticos</textarea>
-									<label class="mdl-textfield__label" for="company">Descripción</label>
-								</div>
-							</div>
+                            <h3>Encontrar centros de estudio</h3>
 							
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-									 <a href="https://docs.google.com/document/d/1Qy-0ylzq9q71RKkVI1QPImJcw2F3Va_XDtoGA_lUuH8/edit">
-									 <img src="images/descarga.jpg" alt="DESCARGAR" style="width:42px;height:42px;border:0;">
-									 </a> 
-									
-                                </div>
-                            </div>
-							<div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input class="mdl-textfield__input" type="text" value="123" id="position"/>
-                                    <label class="mdl-textfield__label" for="position">Cantidad de visitas</label>
-                                </div>
-						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp projects-table">
-                        <thead>
-                        <tr>
-                            <th class="mdl-data-table__cell--non-numeric">Calificación (49%)</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">
-                                <div id="task1" class="mdl-progress mdl-js-progress"></div>
-                                <div class="mdl-tooltip" for="task1">
-                                    49%
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
                     </form>
                 </div>
-            </div>
+				<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+					<input class="mdl-textfield__input" value="Redes" type="text" id="gender" readonly tabIndex="-1"/>
+
+					<label class="mdl-textfield__label" for="gender">Tema</label>
+
+					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
+						<li class="mdl-menu__item">Redes</li>
+						<li class="mdl-menu__item">Programación</li>
+					</ul>
+
+					<label for="gender">
+						<i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
+					</label>
+					
+				</div>
+				<button id="boton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+					Mostrar
+				</button>
+				
+				
+				<div id="redes">
+				<iframe src="https://www.google.com/maps/d/embed?mid=1bYKsgo4T4xLtIDFfCKoGRLy_4BQ" width="640" height="480"></iframe>
+				</div>
+			</div>
         </main>
     </div>
+
+	
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$('#boton').on('click',function(){
+	$("#programacion").hide();
+	$("#redes").show();
+});
+
+});
+</script>
 
 <!-- inject:js -->
 <script src="js/d3.js"></script>

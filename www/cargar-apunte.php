@@ -54,7 +54,6 @@ include_once('settings.php');
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- inject:css -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="css/materialize.min.css">
 	<link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/lib/getmdl-select.min.css">
     <link rel="stylesheet" href="css/lib/nv.d3.css">
@@ -147,25 +146,33 @@ include_once('settings.php');
                 </ul>
             </div>
         </header>
-
         <div class="mdl-layout__drawer">
-            <header>darkboard</header>
+            <header>UTNBook</header>
+            <?php
+            echo '
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html">
+                <a class="mdl-navigation__link" href="'.$url.'">
                     <i class="material-icons" role="presentation">dashboard</i>
-                    Dashboard
+                    Inicio
                 </a>
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="forms.html">
+                <a class="mdl-navigation__link" href="'.$url.'/ver-apunte.php">
                     <i class="material-icons" role="presentation">person</i>
-                    Account
+                    Ver apunte
                 </a>
-
-                <div class="mdl-layout-spacer"></div>
-                <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">
+                <a class="mdl-navigation__link mdl-navigation__link--current" href="'.$url.'/cargar-apunte.php">
                     <i class="material-icons" role="presentation">link</i>
-                    GitHub
+                    Agregar apunte
                 </a>
-            </nav>
+                <a class="mdl-navigation__link" href="'.$url.'/encontrar-centros.php">
+                    <i class="material-icons" role="presentation">link</i>
+                    Encontrar centros
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/sysacad">
+                    <i class="material-icons" role="presentation">link</i>
+                    Seguidor de carrera
+                </a>
+            </nav>';
+            ?>
         </div>
 
         <main class="mdl-layout__content mdl-color--grey-100">
@@ -238,7 +245,6 @@ include_once('settings.php');
 <?php
 echo '
 <script type="text/javascript">
-/*var id_user = "'.$_SESSION["FBID"].'";*/
 var id_user = "2222";
 </script>
 ';

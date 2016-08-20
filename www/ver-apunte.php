@@ -1,3 +1,8 @@
+<?php
+session_start(); 
+include_once('settings.php');
+?>
+
 <!doctype html>
 <!--
   Material Design Lite
@@ -70,8 +75,7 @@
                     </div>
                 </div>
 
-                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification"
-                     data-badge="23">
+                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification">
                     notifications_none
                 </div>
 
@@ -129,7 +133,7 @@
                     </li>
                 </ul>
 
-                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox" data-badge="4">
+                <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox">
                     mail_outline
                 </div>
 
@@ -192,8 +196,8 @@
                 </ul>
 
                 <div class="avatar-dropdown" id="icon">
-                    <span>Luke</span>
-                    <img src="images/Icon_header.png">
+                    <span><?php echo @$_SESSION['FULLNAME']; ?></span>
+                    <img src="https://graph.facebook.com/<?php echo @$_SESSION['FBID']; ?>/picture">
                 </div>
 
                 <ul class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp account-dropdown"
@@ -261,29 +265,33 @@
                 </ul>
             </div>
         </header>
-
         <div class="mdl-layout__drawer">
-            <header>darkboard</header>
+            <header>UTNBook</header>
+            <?php
+            echo '
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html">
+                <a class="mdl-navigation__link" href="'.$url.'">
                     <i class="material-icons" role="presentation">dashboard</i>
-                    Dashboard
+                    Inicio
                 </a>
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="forms.html">
+                <a class="mdl-navigation__link mdl-navigation__link--current" href="'.$url.'/ver-apunte.php">
                     <i class="material-icons" role="presentation">person</i>
-                    Account
+                    Ver apunte
                 </a>
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="encontrar-centros.html">
-                    <i id="centros" class="material-icons" role="presentation">dashboard</i>
-                    Encontrar centros de estudio
-                </a>
-
-                <div class="mdl-layout-spacer"></div>
-                <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">
+                <a class="mdl-navigation__link" href="'.$url.'/cargar-apunte.php">
                     <i class="material-icons" role="presentation">link</i>
-                    GitHub
+                    Agregar apunte
                 </a>
-            </nav>
+                <a class="mdl-navigation__link" href="'.$url.'/encontrar-centros.php">
+                    <i class="material-icons" role="presentation">link</i>
+                    Encontrar centros
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/sysacad">
+                    <i class="material-icons" role="presentation">link</i>
+                    Seguidor de carrera
+                </a>
+            </nav>';
+            ?>
         </div>
 
         <main class="mdl-layout__content mdl-color--grey-100">

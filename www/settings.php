@@ -1,5 +1,5 @@
 <?php
 
-$url = 'http://localhost/com.hackathon2016/www';
+$url = 'blusme.azurewebsites.net/www';
 
 ?>

@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+include_once('settings.php');
 ?>
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -45,9 +46,9 @@ session_start();
   
 
 
-  <?php if ((@$_SESSION['FBID']) or (1==1)) { ?>      <!--  After user login  -->
+  <?php if ((@$_SESSION['FBID'])) { ?>      <!--  After user login  -->
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <div class="mdl-layout-spacer"></div>
@@ -149,31 +150,51 @@ session_start();
                 </ul>
             </div>
         </header>
-    </div>
+        <div class="mdl-layout__drawer">
+            <header>UTNBook</header>
+            <?php
+            echo '
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link mdl-navigation__link--current" href="'.$url.'">
+                    <i class="material-icons" role="presentation">dashboard</i>
+                    Inicio
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/ver-apunte.php">
+                    <i class="material-icons" role="presentation">person</i>
+                    Ver apunte
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/cargar-apunte.php">
+                    <i class="material-icons" role="presentation">link</i>
+                    Agregar apunte
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/encontrar-centros.php">
+                    <i class="material-icons" role="presentation">link</i>
+                    Encontrar centros
+                </a>
+                <a class="mdl-navigation__link" href="'.$url.'/sysacad">
+                    <i class="material-icons" role="presentation">link</i>
+                    Seguidor de carrera
+                </a>
+            </nav>';
+            ?>
+        </div>
 		
 	
     <main class="mdl-layout__content">
 	
-		<div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-			<div class="mdl-card mdl-shadow--2dp weather">
-				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">Actual</h2>
-
-					<div class="mdl-layout-spacer"></div>
-					<div class="mdl-card__subtitle-text">
-						<i class="material-icons">room</i>
-						UTN FRRE
-					</div>
-				</div>
-				<div class="mdl-card__supporting-text mdl-card--expand">
-					<p class="weather-temperature">Azure<sup>&deg;</sup></p>
-
-					<p class="weather-description">
-						Implementación de una base de datos de MySQL en Microsoft Azure
-					</p>
-				</div>
-			</div>
-		</div>
+    <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--5-col-tablet mdl-cell--2-col-phone">
+      <div class="mdl-card mdl-shadow--2dp cotoneaster">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">Programación Funcional</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <div>
+            Sus orígenes provienen del Cálculo Lambda, una teoría matemática elaborada por
+            Alonzo Church como apoyo a sus estudios sobre computabilidad.
+          </div>
+        </div>
+      </div>
+    </div>
 		<div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
 			<div class="mdl-card mdl-shadow--2dp trending">
 				<div class="mdl-card__title">
@@ -220,20 +241,7 @@ session_start();
 				</div>
 			</div>
 		</div>
-		<div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--5-col-tablet mdl-cell--2-col-phone">
-			<div class="mdl-card mdl-shadow--2dp cotoneaster">
-				<div class="mdl-card__title mdl-card--expand">
-					<h2 class="mdl-card__title-text">Programación Funcional</h2>
-				</div>
-				<div class="mdl-card__supporting-text">
-					<div>
-						Sus orígenes provienen del Cálculo Lambda, una teoría matemática elaborada por
-						Alonzo Church como apoyo a sus estudios sobre computabilidad.
-					</div>
-					<a href="https://en.wikipedia.org/wiki/Cotoneaster" target="_blank">Wikipedia</a>
-				</div>
-			</div>
-		</div>
+
 		
 		<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone ">
 			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp projects-table">
@@ -342,17 +350,7 @@ session_start();
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="index.html">
                     <i class="material-icons" role="presentation">dashboard</i>
-                    Dashboard
-                </a>
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="forms.html">
-                    <i class="material-icons" role="presentation">person</i>
-                    Account
-                </a>
-
-                <div class="mdl-layout-spacer"></div>
-                <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">
-                    <i class="material-icons" role="presentation">link</i>
-                    GitHub
+                    Inicio
                 </a>
             </nav>
         </div>
