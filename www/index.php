@@ -155,23 +155,23 @@ include_once('settings.php');
             <?php
             echo '
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link mdl-navigation__link--current" href="'.$url.'">
+                <a class="mdl-navigation__link mdl-navigation__link--current" href="/www/index.php">
                     <i class="material-icons" role="presentation">dashboard</i>
                     Inicio
                 </a>
-                <a class="mdl-navigation__link" href="/ver-apunte.php">
+                <a class="mdl-navigation__link" href="/www/ver-apunte.php">
                     <i class="material-icons" role="presentation">person</i>
                     Ver apunte
                 </a>
-                <a class="mdl-navigation__link" href="/cargar-apunte.php">
+                <a class="mdl-navigation__link" href="/www/cargar-apunte.php">
                     <i class="material-icons" role="presentation">link</i>
                     Agregar apunte
                 </a>
-                <a class="mdl-navigation__link" href="/encontrar-centros.php">
+                <a class="mdl-navigation__link" href="/www/encontrar-centros.php">
                     <i class="material-icons" role="presentation">link</i>
                     Encontrar centros
                 </a>
-                <a class="mdl-navigation__link" href="/sysacad">
+                <a class="mdl-navigation__link" href="/www/sysacad">
                     <i class="material-icons" role="presentation">link</i>
                     Seguidor de carrera
                 </a>
