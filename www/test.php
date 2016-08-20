@@ -18,11 +18,11 @@ use Facebook\HttpClients\FacebookHttpable;
 // start session
 
 // init app with app id and secret
-FacebookSession::setDefaultApplication( '642963862396213','856379884d66aeeb6bb610b7b95c8550' );
+FacebookSession::setDefaultApplication( '1259553880755572','ee0814e41df45702c2d5bb78439c975a' );
 
 // login helper with redirect_uri
 
-    $helper = new FacebookRedirectLoginHelper('http://demos.krizna.com/test.php' );
+    $helper = new FacebookRedirectLoginHelper('http://blusme.azurewebsites.net/www/index.php' );
 
 try {
   $session = $helper->getSessionFromRedirect();
