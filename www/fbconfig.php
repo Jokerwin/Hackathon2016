@@ -2,6 +2,7 @@
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
+require 'functions.php';
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -38,6 +39,7 @@ if ( isset( $session ) ) {
 	    $_SESSION['FBID'] = $fbid;           
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
+      checkuser($fuid,$ffname,$femail);
     /* ---- header location after session ----*/
   header("Location: index.php");
 } else {
